@@ -47,7 +47,7 @@ public class LimitedLivesCommand {
         if (!source.isPlayer()) {
             LivesData.get(chosenentity).ifPresent(livesData -> LimitedLives.LOGGER.info(chosenentity.getName().getString() + " has " + livesData.getLives() + " lives."));
         } else {
-            LivesData.get(chosenentity).ifPresent(livesData -> playerthatsentcommand.sendSystemMessage(Component.translatable(chosenentity.getName().getString() + "'s has " + livesData.getLives() + " lives.")));
+            LivesData.get(chosenentity).ifPresent(livesData -> playerthatsentcommand.sendSystemMessage(Component.translatable(chosenentity.getName().getString() + " has " + livesData.getLives() + " lives.")));
         }
         return Command.SINGLE_SUCCESS;
     }
