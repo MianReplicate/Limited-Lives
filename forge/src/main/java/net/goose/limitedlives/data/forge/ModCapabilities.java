@@ -13,7 +13,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class ModCapabilities {
     public static final Capability<ILivesData> LIVES_DATA_CAPABILITY = CapabilityManager.get(new CapabilityToken<ILivesData>() {
     });
-    public static class EventCapHandler{
+
+    public static class EventCapHandler {
         @SubscribeEvent
         public static void attachentityCapabilities(final AttachCapabilitiesEvent<Entity> event) {
             if (event.getObject() instanceof Player) {

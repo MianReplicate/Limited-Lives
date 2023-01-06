@@ -1,4 +1,4 @@
-package net.goose.limitedlives.mixins;
+package net.goose.limitedlives.fabric.mixins;
 
 import net.goose.limitedlives.data.LivesData;
 import net.minecraft.server.level.ServerPlayer;

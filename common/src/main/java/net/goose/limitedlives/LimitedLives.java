@@ -9,6 +9,7 @@ public class LimitedLives {
 
     public static Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static ModConfig config;
+
     public static void init() {
         LOGGER.info("It's time to limit some lives!");
 

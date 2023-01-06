@@ -14,7 +14,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.GameType;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class LivesData implements ILivesData {
@@ -22,7 +21,7 @@ public class LivesData implements ILivesData {
 
     private int lives = LimitedLives.config.startingLives.get();
 
-    public LivesData(LivingEntity livingEntity){
+    public LivesData(LivingEntity livingEntity) {
         this.livingEntity = livingEntity;
     }
 
@@ -30,6 +29,7 @@ public class LivesData implements ILivesData {
     public static Optional<LivesData> get(LivingEntity livingEntity) {
         throw new AssertionError();
     }
+
     @ExpectPlatform
     public static Optional<LivesData> get(Entity entity) {
         throw new AssertionError();
@@ -41,33 +41,33 @@ public class LivesData implements ILivesData {
     }
 
     @Override
-    public int getLives(){
+    public int getLives() {
         return this.lives;
     }
 
     @Override
     public void setLives(int lives) {
-        if(!livingEntity.level.isClientSide){
+        if (!livingEntity.level.isClientSide) {
             this.lives = lives;
         }
     }
 
     @Override
     public void refreshLives() {
-        if(!livingEntity.level.isClientSide){
+        if (!livingEntity.level.isClientSide) {
             ServerPlayer serverPlayer = (ServerPlayer) livingEntity;
             Component livesCount = Component.translatable("gui.limitedlives.lives_count");
             Component lives = Component.literal(String.valueOf(getLives()));
             serverPlayer.sendSystemMessage(Component.literal(livesCount.getString() + lives.getString()));
 
-            if(this.lives <= 0){
+            if (this.lives <= 0) {
                 this.lives = LimitedLives.config.startingLives.get();
 
                 MinecraftServer server = livingEntity.getServer();
 
                 Component component = Component.translatable("bannedmessage.limitedlives.lost_all_lives");
 
-                if(LimitedLives.config.bannedUponDeath.get()){
+                if (LimitedLives.config.bannedUponDeath.get()) {
                     UserBanList userbanlist = server.getPlayerList().getBans();
                     serverPlayer.getGameProfile();
                     GameProfile gameprofile = serverPlayer.getGameProfile();
@@ -78,7 +78,7 @@ public class LivesData implements ILivesData {
                     if (serverPlayer != null) {
                         serverPlayer.connection.disconnect(component);
                     }
-                } else if(!serverPlayer.isSpectator()){
+                } else if (!serverPlayer.isSpectator()) {
                     serverPlayer.setGameMode(GameType.SPECTATOR);
                     livingEntity.sendSystemMessage(component);
                 }

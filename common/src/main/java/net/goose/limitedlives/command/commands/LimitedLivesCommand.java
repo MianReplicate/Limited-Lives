@@ -32,6 +32,7 @@ public class LimitedLivesCommand {
                                         .then(Commands.argument("Amount", IntegerArgumentType.integer())
                                                 .executes((command) -> setLives(command.getSource(), EntityArgument.getEntity(command, "Player"), IntegerArgumentType.getInteger(command, "Amount")))))));
     }
+
     private static int getLives(CommandSourceStack source) throws CommandSyntaxException {
         if (source.isPlayer()) {
             LivingEntity playerthatsentcommand = source.getPlayer();

@@ -13,7 +13,7 @@ public class ModConfig {
         builder.comment("This category holds general values that will mostly be customized by most.");
         builder.push("Starting Configurations");
         this.startingLives = buildInt(builder, "Starting Lives:", 10, 1, Integer.MAX_VALUE, "This is how many lives you'll start out with in the world.");
-        this.amountOfLivesLost = buildInt(builder, "Amount of Lives Lost Per Death:", 1,1, Integer.MAX_VALUE, "This is how many lives you'll lose every death.");
+        this.amountOfLivesLost = buildInt(builder, "Amount of Lives Lost Per Death:", 1, 1, Integer.MAX_VALUE, "This is how many lives you'll lose every death.");
         this.bannedUponDeath = buildBoolean(builder, "Banned Upon Dying:", false, "This value determines whether you get banned or go into spectator mode when you lose all your lives.");
     }
 

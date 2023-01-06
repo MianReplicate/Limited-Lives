@@ -26,6 +26,7 @@ public class LivesDataImpl {
     public static Optional<ILivesData> get(final Entity entity) {
         return entity.getCapability(ModCapabilities.LIVES_DATA_CAPABILITY).resolve();
     }
+
     public static void attach(final AttachCapabilitiesEvent<Entity> event) {
         class HeartCapProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 

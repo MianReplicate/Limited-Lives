@@ -8,9 +8,11 @@ import net.minecraft.world.entity.LivingEntity;
 public interface ILivesData extends Serializable<CompoundTag> {
 
     LivingEntity getLivingEntity();
+
     int getLives();
 
     void setLives(int lives);
+
     void refreshLives();
 }
 
