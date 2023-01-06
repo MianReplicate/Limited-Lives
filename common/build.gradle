@@ -5,7 +5,7 @@ dependencies {
 
     implementation 'com.electronwill.night-config:core:3.6.3'
     implementation 'com.electronwill.night-config:toml:3.6.3'
-    compileOnly "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${rootProject.forge_config_api_port_version}"
+    compileOnly "net.minecraftforge:forgeconfigapiport-fabric:${rootProject.forge_config_api_port_version}"
 }
 
 architectury {
