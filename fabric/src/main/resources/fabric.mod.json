@@ -4,7 +4,7 @@
   "version": "${version}",
   "custom": {
     "cardinal-components": [
-      "limitedlives:livesdata"
+      "limitedlives:lives_data"
     ]
   },
   "name": "Limited Lives",
