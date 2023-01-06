@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.goose.limitedlives.limitedlives.mixin.forge",
+  "package": "net.goose.limitedlives.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PlayerMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
   ],

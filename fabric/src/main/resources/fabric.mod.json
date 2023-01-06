@@ -2,6 +2,11 @@
   "schemaVersion": 1,
   "id": "limitedlives",
   "version": "${version}",
+  "custom": {
+    "cardinal-components": [
+      "limitedlives:livesdata"
+    ]
+  },
   "name": "Limited Lives",
   "description": "A mod that makes it so you only have limited lives until you die forever!",
   "authors": [
@@ -15,7 +20,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.goose.limitedlives.limitedlives.fabric.LimitedLivesFabric"
+      "net.goose.limitedlives.fabric.LimitedLivesFabric"
+    ],
+    "cardinal-components": [
+      "net.goose.limitedlives.data.fabric.ModComponents"
     ]
   },
   "mixins": [

@@ -6,6 +6,12 @@ architectury {
     forge()
 }
 
+loom {
+    forge {
+        mixinConfig "limitedlives.mixins.json"
+    }
+}
+
 configurations {
     common
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
@@ -61,7 +67,7 @@ components.java {
 publishing {
     publications {
         mavenForge(MavenPublication) {
-            artifactId = rootProject.archives_base_name + "-" + project.name
+            artifactId = rootProject.mod_id + "-" + project.name
             from components.java
         }
     }

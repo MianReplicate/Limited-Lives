@@ -2,16 +2,20 @@ dependencies {
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
     // Do NOT use other classes from fabric loader
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+
+    implementation 'com.electronwill.night-config:core:3.6.3'
+    implementation 'com.electronwill.night-config:toml:3.6.3'
+    compileOnly "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${rootProject.forge_config_api_port_version}"
 }
 
 architectury {
-    common()
+    common(rootProject.enabled_platforms.split(","))
 }
 
 publishing {
     publications {
         mavenCommon(MavenPublication) {
-            artifactId = rootProject.archives_base_name
+            artifactId = rootProject.mod_id
             from components.java
         }
     }
