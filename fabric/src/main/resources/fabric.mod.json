@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "limitedlives",
+  "version": "${version}",
+  "name": "Limited Lives",
+  "description": "A mod that makes it so you only have limited lives until you die forever!",
+  "authors": [
+    "LoxiGoose"
+  ],
+  "contact": {
+    "repo": "https://github.com/LoxiGoose/limited-lives",
+    "issues": "https://github.com/LoxiGoose/limited-lives/issues"
+  },
+  "license": "GPL-3.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.goose.limitedlives.limitedlives.fabric.LimitedLivesFabric"
+    ]
+  },
+  "mixins": [
+    "limitedlives.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "minecraft": ">=1.19.3"
+  }
+}
