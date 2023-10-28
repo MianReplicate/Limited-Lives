@@ -1,4 +1,4 @@
 {
   "bannedmessage.limitedlives.lost_all_lives": "You have lost all your lives, RIP",
-  "gui.limitedlives.lives_count": "Your lives count is now: "
+  "gui.limitedlives.lives_count": "Your lives count is now: %s"
 }
