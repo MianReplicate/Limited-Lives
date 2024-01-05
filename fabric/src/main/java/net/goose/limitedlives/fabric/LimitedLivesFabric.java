@@ -1,11 +1,11 @@
 package net.goose.limitedlives.fabric;
 
-import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
+import fuzs.forgeconfigapiport.api.config.v3.ForgeConfigRegistry;
 import net.goose.limitedlives.LimitedLives;
 import net.fabricmc.api.ModInitializer;
 import net.goose.limitedlives.configuration.ConfigHolder;
 import net.goose.limitedlives.fabric.event.ModCommands;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.config.ModConfig;
 
 public class LimitedLivesFabric implements ModInitializer {
     @Override

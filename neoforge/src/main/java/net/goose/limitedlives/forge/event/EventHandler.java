@@ -4,10 +4,10 @@ import net.goose.limitedlives.LimitedLives;
 import net.goose.limitedlives.command.ModCommands;
 import net.goose.limitedlives.data.LivesData;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = LimitedLives.MOD_ID)
@@ -22,7 +22,6 @@ public class EventHandler {
     public static void playerCloneEvent(final PlayerEvent.Clone event) {
 
         LivingEntity oldPlayer = event.getOriginal();
-        oldPlayer.reviveCaps();
         LivingEntity newPlayer = event.getEntity();
 
         LivesData.get(oldPlayer).ifPresent(oldLives -> LivesData.get(newPlayer).ifPresent(livesData ->
@@ -31,7 +30,5 @@ public class EventHandler {
                     livesData.refreshLives();
                 }
         ));
-
-        oldPlayer.invalidateCaps();
     }
 }

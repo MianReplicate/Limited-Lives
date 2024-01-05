@@ -1,5 +1,6 @@
 package net.goose.limitedlives;
 
+import fuzs.forgeconfigapiport.api.config.v3.ModConfigEvents;
 import net.goose.limitedlives.configuration.ModConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
