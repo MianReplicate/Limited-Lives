@@ -19,8 +19,6 @@ import java.util.Optional;
 public class LivesData implements ILivesData {
     private final LivingEntity livingEntity;
 
-    private int lives = LimitedLives.config.startingLives.get();
-
     public LivesData(LivingEntity livingEntity) {
         this.livingEntity = livingEntity;
     }
@@ -40,15 +38,22 @@ public class LivesData implements ILivesData {
         return this.livingEntity;
     }
 
-    @Override
-    public int getLives() {
-        return this.lives;
+    @ExpectPlatform
+    public static int getLives(LivesData livesData) {
+        throw new AssertionError(); // Literally meant just for Neoforge
     }
 
-    @Override
-    public void setLives(int lives) {
+    @ExpectPlatform
+    public static void setLives(LivesData livesData, int lives) {
+        throw new AssertionError(); // Literally meant just for Neoforge
+    }
+
+    public int getLives(){
+        return getLives(this);
+    }
+    public void setLives(int lives){
         if (!livingEntity.level().isClientSide) {
-            this.lives = lives;
+            setLives(this, lives);
         }
     }
 
@@ -59,8 +64,8 @@ public class LivesData implements ILivesData {
             Component livesCount = Component.translatable("gui.limitedlives.lives_count", getLives());
             serverPlayer.sendSystemMessage(livesCount);
 
-            if (this.lives <= 0) {
-                this.lives = LimitedLives.config.startingLives.get();
+            if (getLives() <= 0) {
+                setLives(LimitedLives.config.startingLives.get());
 
                 MinecraftServer server = livingEntity.getServer();
 

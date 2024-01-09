@@ -20,10 +20,11 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @Inject(method = "dropEquipment", at = @At("HEAD"))
     private void onDeath(final CallbackInfo info) {
-        LivingEntity livingEntity = this;
-
-        LivesData.get(livingEntity).ifPresent(livesData ->
-                livesData.setLives(livesData.getLives() - LimitedLives.config.amountOfLivesLost.get())
+        LivesData.get(this).ifPresent(livesData ->
+                {
+                    livesData.setLives(livesData.getLives() - LimitedLives.config.amountOfLivesLost.get());
+                    System.out.println("Losing And Now Have: "+ livesData.getLives());
+                }
         );
     }
 }

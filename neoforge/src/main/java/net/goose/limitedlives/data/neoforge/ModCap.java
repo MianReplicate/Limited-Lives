@@ -1,4 +1,4 @@
-package net.goose.limitedlives.data.forge;
+package net.goose.limitedlives.data.neoforge;
 
 import net.goose.limitedlives.LimitedLives;
 import net.goose.limitedlives.api.ILivesData;
@@ -9,17 +9,16 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.capabilities.EntityCapability;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
-public class ModCapabilities {
-    public static final EntityCapability<ILivesData, Void> LIVES_DATA =
+@SuppressWarnings("unused")
+public class ModCap {
+    public static final EntityCapability<ILivesData, Void> LIVES_CAP =
             EntityCapability.createVoid(
-                    new ResourceLocation(LimitedLives.MOD_ID, "lives_data"),
+                    new ResourceLocation(LimitedLives.MOD_ID, "lives_cap"),
                     ILivesData.class
             );
 
-    public static class EventCapHandler {
-        @SubscribeEvent
-        public static void registerCapabilities(final RegisterCapabilitiesEvent event) {
-            event.registerEntity(LIVES_DATA, EntityType.PLAYER, (myEntity, context) -> new LivesData(myEntity));
-        }
+    @SubscribeEvent
+    public static void registerCapabilities(final RegisterCapabilitiesEvent event) {
+        event.registerEntity(LIVES_CAP, EntityType.PLAYER, (myEntity, context) -> new LivesData(myEntity));
     }
 }

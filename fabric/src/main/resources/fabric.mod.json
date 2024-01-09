@@ -27,8 +27,7 @@
     ]
   },
   "mixins": [
-    "limitedlives.mixins.json",
-    "limitedlives-fabric.mixins.json"
+    "limitedlives.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.12",

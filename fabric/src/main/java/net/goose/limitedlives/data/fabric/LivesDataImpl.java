@@ -1,15 +1,20 @@
 package net.goose.limitedlives.data.fabric;
 
 import dev.onyxstudios.cca.api.v3.component.ComponentV3;
+import net.goose.limitedlives.LimitedLives;
+import net.goose.limitedlives.api.ILivesData;
 import net.goose.limitedlives.data.LivesData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LivesDataImpl extends LivesData implements ComponentV3 {
+    private int lives = LimitedLives.config.startingLives.get();
     public LivesDataImpl(LivingEntity livingEntity) {
         super(livingEntity);
     }
@@ -28,6 +33,14 @@ public class LivesDataImpl extends LivesData implements ComponentV3 {
         } catch (Exception e) {
             return Optional.empty();
         }
+    }
+
+    public static int getLives(LivesData livesData) {
+       return ((LivesDataImpl) livesData).lives;
+    }
+
+    public static void setLives(LivesData livesData, int lives) {
+        ((LivesDataImpl) livesData).lives = lives;
     }
 
     @Override
