@@ -20,6 +20,5 @@ public abstract class ServerPlayerMixin extends LivingEntity {
     @Inject(method = "initInventoryMenu", at = @At("HEAD"))
     private void onSpawn(final CallbackInfo info) {
         LivesData.get(this).ifPresent(LivesData::refreshLives);
-        LivesData.get(this).ifPresent(LivesData -> System.out.println("Respawn: " + LivesData.getLives()));
     }
 }

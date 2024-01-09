@@ -40,12 +40,12 @@ public class LivesData implements ILivesData {
 
     @ExpectPlatform
     public static int getLives(LivesData livesData) {
-        throw new AssertionError(); // Literally meant just for Neoforge
+        throw new AssertionError();
     }
 
     @ExpectPlatform
     public static void setLives(LivesData livesData, int lives) {
-        throw new AssertionError(); // Literally meant just for Neoforge
+        throw new AssertionError();
     }
 
     public int getLives(){
