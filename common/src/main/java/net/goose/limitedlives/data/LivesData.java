@@ -47,14 +47,14 @@ public class LivesData implements ILivesData {
 
     @Override
     public void setLives(int lives) {
-        if (!livingEntity.level.isClientSide) {
+        if (!livingEntity.level().isClientSide) {
             this.lives = lives;
         }
     }
 
     @Override
     public void refreshLives() {
-        if (!livingEntity.level.isClientSide) {
+        if (!livingEntity.level().isClientSide) {
             ServerPlayer serverPlayer = (ServerPlayer) livingEntity;
             Component livesCount = Component.translatable("gui.limitedlives.lives_count", getLives());
             serverPlayer.sendSystemMessage(livesCount);
